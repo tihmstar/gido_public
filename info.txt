@@ -1,0 +1,8 @@
+while true; do irecovery -c 'call 5ff02769 00000002'; sleep 0.2; done // VOL_UP button
+while true; do irecovery -c 'call 5ff02769 00000003'; sleep 0.2; done // VOL_DOWN button
+
+> md 0xbfa0000c 0000001 //VOL_DOWN button
+
+
+irecovery -c 'call 5ff02791 00000003 00000000' #write 0
+irecovery -c 'call 5ff02791 00000003 00000001' #write 1

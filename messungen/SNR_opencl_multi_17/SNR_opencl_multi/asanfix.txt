@@ -1,0 +1,1 @@
+ASAN_OPTIONS=protect_shadow_gap=0:allow_addr2line=1

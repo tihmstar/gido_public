@@ -1,0 +1,10 @@
+time for d in ../Traces/*; do for i in $(seq 0 7); do sed "s/#define AES_BLOCK_SELECTOR 0/#define AES_BLOCK_SELECTOR $i/g" kernels_sel.cl >kernels.cl; echo $i; mkdir $d/rescorr_block_$i; ./corr_opencl_multi $d $d/rescorr_block_$i; done;done
+
+
+#compressed, all pos first, then all blocks
+time for i in $(seq 0 7); do sed "s/#define AES_BLOCK_SELECTOR 0/#define AES_BLOCK_SELECTOR $i/g" kernels_sel.cl >kernels.cl; echo $i; for d in ../normalized_Traces_compressed/*; do mkdir $d/rescorr_normalized_block_$i; ./corr_opencl_multi $d $d/rescorr_normalized_block_$i; done; done
+
+
+
+#compressed, all pos first, then all blocks, but skip existing
+time for i in $(seq 0 3); do sed "s/#define AES_BLOCK_SELECTOR 0/#define AES_BLOCK_SELECTOR $i/g" kernels_sel.cl >kernels.cl; echo $i; for d in ../normalized_Traces_compressed/*; do mkdir $d/rescorr_normalized_block_$i; if [ -f "$d/rescorr_normalized_block_$i/CORR-powerModel_ROUND2_XOR_NEXT_HW128" ]; then echo "$d/rescorr_normalized_block_$i already exists, skipping..."; continue; fi;  ./corr_opencl_multi $d $d/rescorr_normalized_block_$i || break; done; done

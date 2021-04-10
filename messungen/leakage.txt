@@ -1,0 +1,18 @@
+Maxpos=  0 maxval=0.000000 file=SNR-T3HW
+Maxpos=  0 maxval=0.000000 file=SNR-T2HW
+Maxpos=  0 maxval=0.000000 file=SNR-T1HW
+Maxpos=319 maxval=0.011326 file=SNR-sbox0inputZerovalue
+Maxpos=  0 maxval=0.000000 file=SNR-T0HW
+Maxpos=319 maxval=0.007245 file=SNR-plaintex0HW
+Maxpos=687 maxval=0.000670 file=SNR-sbox0bit5
+Maxpos= 21 maxval=0.001132 file=SNR-sbox0bit6
+Maxpos=319 maxval=0.007170 file=SNR-sbox0HW
+Maxpos=319 maxval=0.011326 file=SNR-sbox0outputZerovalue
+Maxpos=  9 maxval=0.001132 file=SNR-sbox0bit2
+Maxpos=319 maxval=0.001570 file=SNR-plaintex0Value
+Maxpos=  9 maxval=0.001134 file=SNR-sbox0bit1
+Maxpos=  4 maxval=0.001134 file=SNR-sbox0bit0
+Maxpos=  4 maxval=0.001131 file=SNR-sbox0bit4
+Maxpos=  4 maxval=0.001133 file=SNR-sbox0bit7
+Maxpos=  4 maxval=0.002159 file=SNR-sbox0value
+Maxpos=  4 maxval=0.001131 file=SNR-sbox0bit3

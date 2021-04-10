@@ -1,0 +1,13 @@
+echo 0: 2a50b831b02da310f8556adbecc374da | xxd -r | openssl enc -aes-128-ecb -nopad -K $(cat A4GIDKey.txt) | xxd -p
+#output 8b71837295ef72cb82d428d168bd5c78
+
+
+#decrypt 
+echo 0: 8b71837295ef72cb82d428d168bd5c78 | xxd -r | openssl aes-128-ecb -d -nopad -K $(cat A4GIDKey.txt) | xxd -p
+#output 2a50b831b02da310f8556adbecc374da
+
+
+#decrypt KBAG IV
+dd if=kbag bs=1 skip=0x14 count=48 2>/dev/null | openssl aes-256-cbc -iv 00000000000000000000000000000000 -d -nopad -K $(cat ~/dev/gido/A4GIDKey.txt) | xxd -p | tr -d '\n' ;echo
+
+xxd -p kernelcache.release.n90b | tr -d '\n' | grep -o "4741424b.*" | xxd -r -p | dd bs=1 skip=0x14 count=48 2>/dev/null | openssl aes-256-cbc -iv 00000000000000000000000000000000 -d -nopad -K $(cat ~/dev/gido/A4GIDKey.txt) | xxd -p | tr -d '\n' ;echo
